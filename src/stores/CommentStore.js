@@ -7,7 +7,8 @@ class CommentStore extends SimpleStore {
         super(...args);
 
         AppDispatcher.register((action) => {
-            const { type, articleId, text } = action;
+            const { type, data } = action;
+            const { articleId, text} = data;
 
             switch (type) {
                 case ADD_COMMENT:
