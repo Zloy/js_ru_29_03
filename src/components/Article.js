@@ -4,6 +4,15 @@ import { findDOMNode } from 'react-dom'
 
 class Article extends Component {
 
+    static propTypes = {
+        addComment: PropTypes.func, // как пример необязательного параметра
+        article: PropTypes.object.isRequired,
+        deleteArticle: PropTypes.func.isRequired,
+        isSelected: PropTypes.bool.isRequired,
+        openItem: PropTypes.func.isRequired,
+        selectArticle: PropTypes.func.isRequired
+    };
+
     render() {
         const { article: { title }, isSelected, openItem, deleteArticle } = this.props
         const style = isSelected ? {color: 'red'} : null
