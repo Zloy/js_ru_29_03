@@ -14,7 +14,7 @@ class CommentStore extends SimpleStore {
                 case ADD_COMMENT:
                     var newItem = { id: this.getNewItemId(), text: text };
                     this.__add(newItem);
-                    console.log("--", "comments:", this.getAll());
+                    stores.articles.addComment(articleId, newItem.id);
                     this.emitChange();
                     break;
             }

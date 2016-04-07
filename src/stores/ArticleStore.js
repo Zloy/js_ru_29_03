@@ -16,6 +16,12 @@ class ArticleStore extends SimpleStore {
                     break;
             }
         })
+
+    }
+
+    addComment(articleId, commentId) {
+        this.getById(articleId).comments.push(commentId);
+        this.emitChange();
     }
 }
 
