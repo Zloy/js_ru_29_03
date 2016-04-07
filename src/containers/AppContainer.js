@@ -1,41 +1,19 @@
 import React, { Component, PropTypes } from 'react'
-import { articleStore } from '../stores'
 import ArticleList from './../components/ArticleList'
 import { deleteArticle } from '../AC/articles'
 import { addComment } from '../AC/Comments'
+import AttachedToStore from '../HOC/AttachedToStore'
+import stores from '../stores'
 
 class AppContainer extends Component {
     static propTypes = {
-
+        items: PropTypes.array.isRequired
     };
-
-    constructor() {
-        super()
-        this.state = this.getState()
-    }
-
-    getState() {
-        return {
-            articles: articleStore.getAll()
-        }
-    }
-
-    componentDidMount() {
-        articleStore.addChangeListener(this.changeArticles)
-    }
-
-    componentWillUnmount() {
-        articleStore.removeChangeListener(this.changeArticles)
-    }
-
-    changeArticles = () => {
-        this.setState(this.getState())
-    }
 
     render() {
         return (
             <ArticleList
-                articles = {this.state.articles}
+                articles = {this.props.items}
                 deleteArticle = {deleteArticle}
                 addComment = {addComment}
             />
@@ -43,4 +21,4 @@ class AppContainer extends Component {
     }
 }
 
-export default AppContainer
+export default AttachedToStore(AppContainer, stores.articles)
