@@ -14,6 +14,7 @@ class CommentStore extends SimpleStore {
                 case ADD_COMMENT:
                     var newItem = { id: this.getNewItemId(), text: text };
                     this.__add(newItem);
+                    //нет, стор должен менять только сам себя, для этого мы и сделали __add приватным
                     stores.articles.addComment(articleId, newItem.id);
                     this.emitChange();
                     break;
