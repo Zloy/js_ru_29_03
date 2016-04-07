@@ -23,7 +23,12 @@ class CommentList extends Component {
         const { comments } = this.props
         if (!this.props.isOpen || !comments) return null
         const commetItems = comments.map(comment => <li key={comment.id}><Comment comment = {comment}/></li>)
-        return <ul>{commetItems}<li><CommentAdd /></li></ul>
+        return(
+            <ul>
+                {commetItems}
+                <li><CommentAdd addComment = {this.props.addComment} /></li>
+            </ul>
+            )
     }
 }
 

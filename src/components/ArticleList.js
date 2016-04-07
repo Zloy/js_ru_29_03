@@ -9,6 +9,7 @@ class AricleList extends Component {
 
     static propTypes = {
         articles: PropTypes.array.isRequired,
+        addComment: PropTypes.func.isRequired,
         deleteArticle: PropTypes.func.isRequired
     }
 
@@ -31,6 +32,7 @@ class AricleList extends Component {
                     openItem = {openItem(article.id)}
                     isOpen = {isOpen(article.id)}
                     deleteArticle = {this.props.deleteArticle}
+                    addComment = {this.props.addComment}
                     isSelected = {this.state.selectedArticles.includes(article.id)}
                     selectArticle = {this.selectArticle}
                 />

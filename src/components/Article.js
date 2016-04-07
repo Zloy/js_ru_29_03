@@ -22,6 +22,15 @@ class Article extends Component {
         this.props.deleteArticle(this.props.article.id)
     }
 
+    addComment = (text) => {
+        if (this.props.addComment) {
+            this.props.addComment(this.props.article.id, text)
+        }
+        else {
+            console.log("--", "Article missing this.props.addComment")
+        }
+    }
+
     componentDidMount() {
 /*
         console.log('---', this.refs);
@@ -40,7 +49,10 @@ class Article extends Component {
         return (
             <section>
                 {article.text}
-                <CommentList comments = {article.getRelation('comments')} ref = "commentList" />
+                <CommentList
+                    comments = {article.getRelation('comments')}
+                    ref = "commentList"
+                    addComment = {this.addComment} />
             </section>
         )
     }
