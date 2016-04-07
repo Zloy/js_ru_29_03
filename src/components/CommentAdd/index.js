@@ -34,6 +34,7 @@ class CommentAdd extends Component {
 
         if (this.props.addComment) {
             this.props.addComment(newCommentText)
+            this.props.toggleOpen();
         }
         else {
             console.log("--", "new comment:", newCommentText)
