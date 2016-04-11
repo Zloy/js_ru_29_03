@@ -16,7 +16,11 @@ module.exports = {
         proxy: [{
             path: '/api/*',
             target: 'http://localhost:3001'
-        }]
+        }],
+        watchOptions: {
+            aggregateTimeout: 300,
+            poll: 1000
+        }
     },
     module: {
         loaders: [
