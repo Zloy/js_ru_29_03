@@ -45,7 +45,7 @@ class Article extends Component {
         const { article } = this.props
         return (
             <section>
-                {article.text}
+                {article.text == null ? "loading..." : article.text}
                 <CommentList article = {article} ref = "commentList" />
             </section>
         )

@@ -28,7 +28,7 @@ class AricleList extends Component {
             <li key={article.id}>
                 <Article
                     article = {article}
-                    openItem = {openItem(article.id)}
+                    openItem = {openItem(article)}
                     isOpen = {isOpen(article.id)}
                     deleteArticle = {this.props.deleteArticle}
                     isSelected = {this.state.selectedArticles.includes(article.id)}
